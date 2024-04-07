@@ -11,6 +11,85 @@ body {
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(40,40,105,1) 49%, rgba(0,212,255,1) 100%);
 }
 
+/* TIPOS DE POKEMON */
+:root{
+    --normal: #A8A878;
+    --fire: #F08030;
+    --water: #6890F0;
+    --grass: #78C850;
+    --electric: #F8D030;
+    --ice: #98D8D8;
+    --fighting: #C03028;
+    --poison: #A040A0;
+    --ground: #E0C068;
+    --flying: #A890F0;
+    --psychic: #F85888;
+    --bug: #A8B820;
+    --rock: #B8A038;
+    --ghost: #705898;
+    --dark: #705848;
+    --dragon: #7038F8;
+    --steel: #B8B8D0;
+    --fairy: #F0B6BC;
+}
+
+.normal{
+    background-color: var(--normal);
+}
+.fire{
+    background-color: var(--fire);
+}
+.water{
+    background-color: var(--water);
+}
+.grass{
+    background-color: var(--grass);
+}
+.electric{
+    background-color: var(--electric);
+}
+.ice{
+    background-color: var(--ice);
+}
+.fighting{
+    background-color: var(--fighting);
+}
+.poison{
+    background-color: var(--poison);
+}
+.ground{
+    background-color: var(--ground);
+}
+.flying{
+    background-color: var(--flying);
+}
+.psychic{
+    background-color: var(--psychic);
+}
+.bug{
+    background-color: var(--bug);
+}
+.rock{
+    background-color: var(--rock);
+}
+.ghost{
+    background-color: var(--ghost);
+}
+.dark{
+    background-color: var(--dark);
+}
+.dragon{
+    background-color: var(--dragon);
+}
+.steel{
+    background-color: var(--steel);
+}
+.fairy{
+    background-color: var(--fairy);
+}
+.info {
+    background-color: antiquewhite;
+}
 .main-logo {
     padding-top: 20px;
     width: 30%;
@@ -39,8 +118,10 @@ body {
     background-color: hwb(30 72% 27%);
     border-radius: 6%;
     box-shadow: 15px 15px 17px -6px rgba(253,255,25,0.91);
+    padding-bottom: 5%;
     
     position: relative;
+    display: grid;
 }
 .pokemon:hover {
     cursor: pointer;
@@ -67,7 +148,6 @@ body {
         font-weight: 800;
         width: 80px;
         height: 30px;
-        background-color: antiquewhite;
         border-radius: 5px;
         text-align: center;
         padding-top: 7px;
@@ -82,14 +162,15 @@ body {
         text-align: center;
         position: relative;
     }
+    
 }
 #numeroPokemon {
     font-size: 8rem;
     font-weight: 900;
-    margin: calc((100% - 192px)/2);
+    text-align: center;
     color: aliceblue;
     opacity: 0.5;
-
+    justify-self: center;
     position: absolute;
-    bottom: 0px;
+    bottom: 9%;
 }
