@@ -38,6 +38,7 @@ body {
 }
 .fire{
     background-color: var(--fire);
+    color: white;
 }
 .water{
     background-color: var(--water);
@@ -53,15 +54,18 @@ body {
 }
 .fighting{
     background-color: var(--fighting);
+    color: white;
 }
 .poison{
     background-color: var(--poison);
+    color: white;
 }
 .ground{
     background-color: var(--ground);
 }
 .flying{
     background-color: var(--flying);
+    color: white;
 }
 .psychic{
     background-color: var(--psychic);
@@ -80,12 +84,14 @@ body {
 }
 .dragon{
     background-color: var(--dragon);
+    color: white;
 }
 .steel{
     background-color: var(--steel);
 }
 .fairy{
     background-color: var(--fairy);
+    color: white;
 }
 .info {
     background-color: antiquewhite;
@@ -117,7 +123,7 @@ body {
     height: 355px;
     background-color: hwb(30 72% 27%);
     border-radius: 6%;
-    box-shadow: 15px 15px 17px -6px rgba(253,255,25,0.91);
+    box-shadow: 8px 9px 19px 3px rgba(76,251,255,0.68);
     padding-bottom: 5%;
     
     position: relative;

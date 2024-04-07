@@ -1,20 +1,30 @@
 const API = "https://pokeapi.co/api/v2/pokemon";
 const container = document.querySelector(".container");
 
+async function obtenerPokemon() {
+    for (let i = 1; i <= 151; i++) {
+    try{
+        const response = await fetch(`${API}/${i}`);
+        const data = await response.json();
+         crearPokemon(data);
+    } catch (error) {
+        console.error('Error al obtener datos del Pokémon:', error);
+    }
+        
+    }
+};
 
-for (let i = 1; i <= 151; i++) {
-    fetch(`${API}/${i}`)
-    .then(response => response.json())
-    .then(data => crearPokemon(data));
+// for (let i = 1; i <= 151; i++) {
+//     fetch(`${API}/${i}`)
+//     .then(response => response.json())
+//     .then(data => crearPokemon(data));
     
-}
+// }
 
 function crearPokemon(pokemon) {
     let tipos = pokemon.types.map(tipo => `<p class="${tipo.type.name} tipo">${tipo.type.name.toUpperCase()}</p>`);
 
     tipos = tipos.join('');
-
-    console.log(tipos);
 
     const div = document.createElement("div");
     div.classList.add("pokemon")
@@ -29,10 +39,10 @@ function crearPokemon(pokemon) {
                     <p class="altura info">${(pokemon.height)/10}m</p>
                     <p class="peso info">${(pokemon.weight)/10}Kg</p>
                 </div>`;
-    container.append(div);
-
-    
+    container.append(div);   
 }
+
+obtenerPokemon();
 
 
 /* <div class="pokemon card">
