@@ -19,7 +19,7 @@ function crearPokemon(pokemon) {
     const div = document.createElement("div");
     div.classList.add("pokemon")
     div.innerHTML = `
-    <p id="numeroPokemon">#${pokemon.order}</p>
+    <p id="numeroPokemon">#${pokemon.id}</p>
                 <figure>
                     <img class="imagen-pokemon" id="foto" src="${pokemon.sprites.other["official-artwork"]["front_default"]}" alt="${pokemon.name}">
                 </figure>
