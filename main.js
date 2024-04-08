@@ -6,7 +6,7 @@ async function obtenerPokemon() {
     try{
         const response = await fetch(`${API}/${i}`);
         const data = await response.json();
-         crearPokemon(data);
+        crearPokemon(data);
     } catch (error) {
         console.error('Error al obtener datos del Pokémon:', error);
     }
@@ -26,10 +26,14 @@ function crearPokemon(pokemon) {
 
     tipos = tipos.join('');
 
-    const div = document.createElement("div");
-    div.classList.add("pokemon")
-    div.innerHTML = `
-    <p id="numeroPokemon">#${pokemon.id}</p>
+    const divCard = document.createElement("div");
+    divCard.classList.add("card");
+    divCard.addEventListener("click", () => divCard.classList.toggle("flipped"));
+
+    const divFront = document.createElement("div");
+    divFront.classList.add("front")
+    divFront.innerHTML = `
+                <p id="numeroPokemon">#${pokemon.id}</p>
                 <figure>
                     <img class="imagen-pokemon" id="foto" src="${pokemon.sprites.other["official-artwork"]["front_default"]}" alt="${pokemon.name}">
                 </figure>
@@ -39,7 +43,15 @@ function crearPokemon(pokemon) {
                     <p class="altura info">${(pokemon.height)/10}m</p>
                     <p class="peso info">${(pokemon.weight)/10}Kg</p>
                 </div>`;
-    container.append(div);   
+    
+    const divBack = document.createElement("div");
+    divBack.classList.add("back");
+    divBack.innerHTML = `
+    <h1>${pokemon.name.toUpperCase()}</h1>
+    <p class="shinny">VERSION SHINY</p><img class="imagen-back" src="${pokemon.sprites.other["official-artwork"]["front_shiny"]}" alt="">`;
+
+    container.append(divCard);
+    divCard.append(divFront, divBack);
 }
 
 obtenerPokemon();
