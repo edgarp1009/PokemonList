@@ -33,6 +33,38 @@ body {
     --fairy: #F0B6BC;
 }
 
+.hidden {
+    display: none;
+}
+
+.types-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5%;
+    row-gap: 10px;
+    padding: 20px;
+    max-width: 880px;
+    margin: 0 auto;
+
+    .navbar-type {
+        font-size: 1.5rem;
+        font-weight: 800;
+        width: 82px;
+        height: 30px;
+        padding-top: 5px;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 8px 9px 19px 3px rgba(76,251,255,0.68);
+    }
+
+    .navbar-type:hover {
+        cursor: pointer;
+        transform: scale(1.05) translate(-2.5px,-2.5px);
+        transition: 0.5s;
+    }
+}
+
 .normal{
     background-color: var(--normal);
 }
@@ -96,14 +128,41 @@ body {
 .info {
     background-color: antiquewhite;
 }
+.todos {
+    background-color: antiquewhite;
+}
+
 .main-logo {
     padding-top: 20px;
-    width: 30%;
+    width: 40%;
     min-width: 200px;
     margin: 0 auto;
+    /* margin-top: 10px; */
     img {
         width: 100%;
+        animation: logo-jump 2s ease-in-out 4s forwards;
     }
+}
+
+.buscador-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    
+    #buscador {
+        width: 250px;
+        height: 30px;
+        border-color: rgba(76,251,255,0.68);
+        background-color: #224280;
+        color: white;
+        font-size: 1.5rem;
+        border-radius: 10px;
+        padding-left: 10px;
+    }
+}
+
+.buscador input:hover {
+    border-color: white;
 }
 
 .container {
@@ -131,7 +190,7 @@ body {
 
 .front, .back {
     backface-visibility: hidden;
-    transition: transform 0.6s;
+    transition: transform 1.2s;
 }
 
 .front {
@@ -152,7 +211,9 @@ body {
     color: white;
     border-radius: 6%;
     position: absolute;
+
     transform: rotateY(180deg);
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -234,3 +295,93 @@ body {
     position: absolute;
     bottom: 9%;
 }
+
+.loader {
+    width: 100%;
+    height: 100vh;
+    background: rgb(34,115,195);
+    background: radial-gradient(circle, rgba(34,115,195,1) 70%, rgba(253,187,45,1) 100%);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    animation: loader 3.5s linear forwards;
+
+    img {
+        width: 20%;
+
+        transform: scale(0);
+        animation: scaling 3s ease-in-out infinite;
+    }
+
+    img:nth-child(1) {
+        animation-delay: 0.2s;
+    }
+    img:nth-child(2) {
+        animation-delay: 0.6s;
+    }
+    img:nth-child(3) {
+        animation-delay: 1s;
+    }
+}
+
+@keyframes loader {
+    0%{
+        opacity: 1;
+        visibility: visible;
+    }
+    95%{
+        opacity: 0.8;
+        visibility: visible;
+    }
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* ANIMACION DE POKEBALLS DE CARGA */
+
+@keyframes scaling {
+    0%, 100%{
+        transform: scale(0.2) translateY(-300px);
+    }
+    40%{
+        transform: scale(1);
+    }
+    70%{
+        transform: scale(1) ;
+    }
+    
+}
+
+/* ANIMACION LOGO */
+
+@keyframes logo-jump {
+    0%{
+        transform: scale(1);
+    }
+    30%{
+        transform: scale(1.2);
+    }
+    60%{
+        transform: scale(1) ;
+    }
+    85%{
+        transform: scale(1.2) ;
+    }
+    100%{
+        transform: scale(1) ;
+    }
+}
+
+@media only screen and (max-width: 808px) {
+    .main-logo {
+        
+        width: 90%;
+        
+    }
+  }
