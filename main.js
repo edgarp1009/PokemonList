@@ -2,8 +2,11 @@ const API = "https://pokeapi.co/api/v2/pokemon";
 const container = document.querySelector(".container");
 
 // Utilice Async/await porque los pokemon se estaban generando de manera desordenada
-async function obtenerPokemon() { 
-    for (let i = 1; i <= 151; i++) {
+let firstPokemonMain = 1;
+let lastPokemonMain = 151;
+
+async function obtenerPokemon(first, last) { 
+    for (let i = first; i <= last; i++) {
     try{
         const response = await fetch(`${API}/${i}`);
         const data = await response.json();
@@ -126,4 +129,4 @@ function lazyLoad() {
     });
 }
 
-obtenerPokemon();
+obtenerPokemon(firstPokemonMain, lastPokemonMain);
